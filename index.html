@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arjoo Jain | Assistant Professor Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+  background:
+  linear-gradient(rgba(8,15,35,0.82), rgba(20,35,70,0.9)),
+  url('background.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+    nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(10,18,40,0.72);
+      backdrop-filter:blur(12px);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#ffffff;
+      letter-spacing:1px;
+    }
+
+    .logo span{
+      color:#7dd3fc;
+    }
+
+    .nav-links a{
+      color:#e5e7eb;
+      text-decoration:none;
+      margin-left:24px;
+      font-size:15px;
+      font-weight:500;
+      transition:0.3s;
+      position:relative;
+    }
+
+    .nav-links a:hover{
+      color:#7dd3fc;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:120px 8% 60px;
+    }
+
+    .hero-container{
+      width:100%;
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero-text h3{
+      color:#7dd3fc;
+      font-size:20px;
+      font-weight:500;
+      margin-bottom:12px;
+      letter-spacing:1px;
+    }
+
+    .hero-text h1{
+      font-size:64px;
+      line-height:1.1;
+      margin-bottom:18px;
+      font-weight:700;
+      color: white;
+    }
+
+    .hero-text p{
+      color:#d1d5db;
+      font-size:18px;
+      line-height:1.9;
+      max-width:700px;
+      margin-bottom:30px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 28px;
+      border-radius:40px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,#38bdf8,#2563eb);
+      color:#fff;
+      box-shadow:0 10px 30px rgba(37,99,235,0.35);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+    }
+
+    .btn-secondary{
+      border:1px solid rgba(255,255,255,0.3);
+      color:#fff;
+      background:rgba(255,255,255,0.08);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.15);
+    }
+
+    .hero-image{
+      display:flex;
+      justify-content:center;
+    }
+
+    .hero-image .image-box{
+      position:relative;
+      width:350px;
+      height:350px;
+      border-radius:30px;
+      background:linear-gradient(135deg,#38bdf8,#1e3a8a);
+      padding:8px;
+      box-shadow:0 20px 50px rgba(0,0,0,0.4);
+    }
+
+    .hero-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:24px;
+      display:block;
+    }
+
+    .section{
+      width:88%;
+      max-width:1200px;
+      margin:0 auto 40px;
+      padding:45px;
+      border-radius:28px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,0.08);
+      box-shadow:0 10px 40px rgba(0,0,0,0.25);
+    }
+
+    .section h2{
+      font-size:34px;
+      margin-bottom:28px;
+      color:#7dd3fc;
+      position:relative;
+    }
+
+    .section h2::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      width:80px;
+      height:4px;
+      border-radius:10px;
+      background:#38bdf8;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:24px;
+      margin-top:20px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.08);
+      padding:24px;
+      border-radius:20px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.06);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      background:rgba(255,255,255,0.12);
+    }
+
+    .card h3{
+      color:#ffffff;
+      margin-bottom:10px;
+      font-size:20px;
+    }
+
+    .card p,
+    .card li{
+      color:#d1d5db;
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    .card ul{
+      padding-left:18px;
+    }
+
+    .quote-box{
+      margin-bottom:18px;
+      padding:22px;
+      border-left:4px solid #38bdf8;
+      background:rgba(255,255,255,0.06);
+      border-radius:16px;
+      color:#e5e7eb;
+      font-style:italic;
+      line-height:1.8;
+    }
+
+    .contact-form{
+      display:grid;
+      gap:18px;
+    }
+
+    .contact-form input,
+    .contact-form textarea{
+      width:100%;
+      padding:16px 18px;
+      border:none;
+      border-radius:16px;
+      background:rgba(255,255,255,0.08);
+      color:#fff;
+      font-size:15px;
+      outline:none;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder{
+      color:#cbd5e1;
+    }
+
+    .contact-form button{
+      width:220px;
+      padding:15px;
+      border:none;
+      border-radius:40px;
+      background:linear-gradient(135deg,#38bdf8,#2563eb);
+      color:#fff;
+      font-size:16px;
+      font-weight:600;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .contact-form button:hover{
+      transform:translateY(-3px);
+    }
+
+    footer{
+      text-align:center;
+      padding:30px 20px 40px;
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    @media(max-width:950px){
+      .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero-text p{
+        margin:0 auto 30px;
+      }
+
+      .hero-buttons{
+        justify-content:center;
+      }
+
+      .hero-text h1{
+        font-size:48px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero{
+        padding-top:100px;
+      }
+
+      .hero-text h1{
+        font-size:38px;
+      }
+
+      .hero-image .image-box{
+        width:270px;
+        height:270px;
+      }
+
+      .section{
+        width:92%;
+        padding:28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Arjoo <span>Jain</span></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#books">Books</a>
+      <a href="#quotes">Quotes</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-text">
+        <h3>Assistant Professor • Computer Science & Engineering</h3>
+        <h1> Professor by title, Learner forever.</h1>
+        <p>
+          Assistant Professor by designation, debugger by habit, and lifelong learner by choice. I believe Computer Science is not only about writing code—it is about building curiosity, solving problems, and turning ideas into innovation.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">Explore Portfolio</a>
+          <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="image-box">
+         <img src="AJ.webp" alt="Arjoo Jain">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p style="color:#d1d5db; line-height:2; font-size:17px;">
+      I don’t just teach programming—I teach students how to think critically, solve real-world problems, and transform ideas into impactful solutions. <br>
+       In my classroom, errors are not failures; they are proof that learning is happening. <br>
+       Cool professors do not give all the answers—they ask the questions that make students discover their own.
+    </p>
+  </section>
+    <section class="section" id="Experience">
+    <h2>Experience </h2>
+    <p style="color:#d1d5db; line-height:2; font-size:17px;">
+      <div class="grid">
+      <div class="card">
+        <h3>Sdgi Global University, Ghaziabad</h3>
+        <p>Assistant Professor <br>  Feb 2025-Present </p>
+      </div>
+      <div class="card">
+        <h3>Guru Nanak College, Dehradun</h3>
+        <p> Assistant Professor <br>  Nov 2024 - Feb 2025 </p>
+      </div>
+    </p>
+  </section>
+
+  <section class="section" id="education">
+    <h2>Educational Qualifications</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>M.Tech in Technology</h3>
+        <p>Teerthanker Mahaveer University, Moradabad  • 2027</p>
+      </div>
+      <div class="card">
+        <h3>Masters in computer Applications</h3>
+        <p> Teerthanker Mahaveer University, Moradabad  • 2024</p>
+      </div>
+      <div class="card">
+        <h3>Bachelors in Computer Science </h3>
+        <p> K. P. Engineering College, Agra • 2022</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="certificates">
+    <h2>Certificates & FDP</h2>
+    <div class="grid">
+      <div class="card"><p>Faculty Development Program on Artificial Intelligence – 2025</p></div>
+      <div class="card"><p>Certificate in Data Analytics with Python</p></div>
+      <div class="card"><p>Faculty Development Program on Research Methodology</p></div>
+      <div class="card"><p>Certificate in HTML, CSS, JavaScript </p></div>
+    </div>
+  </section>
+
+  <section class="section" id="books">
+    <h2>Favorite Books & Hobbies</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Favorite Books</h3>
+        <ul>
+          <li>The Alchemist – Paulo Coelho</li>
+          <li>Atomic Habits – James Clear</li>
+          <li>Wings of Fire – A.P.J. Abdul Kalam</li>
+          <li>Deep Work – Cal Newport</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Hobbies</h3>
+        <ul>
+          <li>Reading Books</li>
+          <li>Writing Articles</li>
+          <li>Listening to Music</li>
+          <li>Travelling</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quotes">
+    <h2>Favorite Quotes</h2>
+
+    <div class="quote-box">
+      “Education is the most powerful weapon which you can use to change the world.” – Nelson Mandela
+    </div>
+
+    <div class="quote-box">
+      “Success is not final, failure is not fatal: it is the courage to continue that counts.” – Winston Churchill
+    </div>
+
+    <div class="quote-box">
+      “Live and let live.”
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Me</h2>
+
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="6" placeholder="Write your message here..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <p id="responseMessage" style="margin-top:18px;color:#7dd3fc;font-weight:500;"></p>
+  </section>
+
+  <footer>
+    © 2026 AJ Vibes
+  </footer>
+
+  <script>
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value
+      };
+
+      fetch("https://script.google.com/macros/s/AKfycbyA6ZeslHh-KrenT0JriWULvCKjyyd2fAohxnxQECFEf3ZjJ4SzNMK9iAULByMv7mot/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+      })
+      .then(res => res.text())
+      .then(() => {
+       document.getElementById("responseMessage").innerText = "I got your message! i'll get back to you soon!";
+        form.reset();
+      })
+      .catch(() => {
+        document.getElementById("responseMessage").innerText = "Error sending message.";
+      });
+    });
+  </script>
+
+</body>
+</html>
+
